@@ -92,11 +92,11 @@ module.exports = {
 			}
 		}),
 
-		//把指定文件夹下的文件复制到指定的目录，有问题，无效
+		// 把指定文件夹下的文件复制到指定的目录，有问题，无效
 		// new TransferWebpackPlugin([{
-		// 	from: src + '/data/'
-		// }], dist + '/data/')
-
+		// 	from: src + '/api/'
+		// }], './dist/api')
+		
 	],
 	devtool: 'eval-source-map', //	Dev only,配置生成Source Maps，隐射源文件位置
 	// Dev only,本地服务器配置

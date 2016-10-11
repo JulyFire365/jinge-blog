@@ -18,7 +18,8 @@ class Common {
 		htmlEle.style.fontSize = 10 * windowWidth / max + 'px';
 	}
 	toFetch(requestJson){	// fetch方式请求，替代ajax请求方式
-		fetch(requestJson.url).then(function(response) {
+		var getApiInfo = this.getApiInfo();
+		fetch(getApiInfo.apiPath + requestJson.url).then(function(response) {
 	        if (response.status >= 400) {
 				requestJson.callback({
 					code: 2,
@@ -36,6 +37,11 @@ class Common {
 				msg: '服务器请求失败。'
 			});
 	    });
+	}
+	getApiInfo(){	// api相关配置
+		return {
+			apiPath : '/dist/api/'	// 需要根据实际情况配置
+		}
 	}
 	isCorrectRender(response){	// 判断fetch返回结果是否正确
 		if( response && response.code == 0 ){

@@ -13,7 +13,7 @@ class ResponseErrorSwitch extends React.Component {
     			if( datas && datas.length < 1 ){
 			        return <ResponseEmpty title={title} />
     			}else{
-    				console.log('Error! Response is correct in responseErrorSwitch!')
+    				console.log('Error! Response is correct,no need responseErrorSwitch!')
     			}
     		}else{
     			return <ResponseError msg={response.msg} />

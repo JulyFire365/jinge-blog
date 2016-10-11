@@ -2,24 +2,24 @@ import {React, ReactDOM, Router, Route, hashHistory, IndexRoute, Link, comm, Enh
 import Banner from './banner/banner';
 import Nav from './nav/nav';
 import Recommend from './recommend/recommend';
-
+console.log('hello');
 class Home extends React.Component {
 	constructor(){
 		super();
 		this.state = {
 			banner : {
 				config  :{
-					url : '../data/homeBanner.json'
+					url : 'homeBanner.json'
 				}
 			},
 			nav : {
 				config  :{
-					url : '../data/homeNav.json'
+					url : 'homeNav.json'
 				}
 			},
 			recommend : {
 				config  :{
-					url : '../data/homeRecommend.json'
+					url : 'homeRecommend.json'
 				}
 			}
 		};
