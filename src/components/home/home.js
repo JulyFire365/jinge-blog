@@ -1,25 +1,27 @@
-import {React, ReactDOM, Router, Route, hashHistory, IndexRoute, Link, comm, Enhance} from 'commComp';
-import Banner from './banner/banner';
-import Nav from './nav/nav';
+import React from 'react';
+import comm from 'commFile';
+import Banner from './banner/js';
 import Recommend from './recommend/recommend';
-console.log('hello');
+import Header from './header/js';
+import Nav from './nav/js';
+import styles from 'compPublicDir/base.css';
 class Home extends React.Component {
 	constructor(){
 		super();
 		this.state = {
-			banner : {
-				config  :{
-					url : 'homeBanner.json'
-				}
-			},
 			nav : {
 				config  :{
-					url : 'homeNav.json'
+					url : 'nav.json'
+				}
+			},
+			banner : {
+				config  :{
+					url : 'banner.json'
 				}
 			},
 			recommend : {
 				config  :{
-					url : 'homeRecommend.json'
+					url : 'recommend.json'
 				}
 			}
 		};
@@ -41,9 +43,11 @@ class Home extends React.Component {
     render() {
         return (
         	<div>
-        		<Banner response={this.state.banner.response} />
-        		<Nav response={this.state.nav.response} />
-        		<Recommend response={this.state.recommend.response} />
+        		<Header response={this.state.banner.response}/>
+        		<div className={styles.content}>
+        			<Nav response={this.state.nav.response}/>
+        			<Recommend response={this.state.recommend.response}/>
+        		</div>
         	</div>
         );
     }

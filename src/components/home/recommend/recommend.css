@@ -1,0 +1,30 @@
+.recommend{
+	
+}
+.title{
+	background:url('./flowers.png') left bottom no-repeat;
+	background-size:auto 100%;
+	padding:1rem 0 .2rem 3rem;
+	border-bottom:solid solid .4rem #f2f2f2;
+}
+.item{
+	
+}
+.list h1{
+	line-height: 2em;
+	font-size:1.6rem;
+}
+.list li{
+	padding: 1rem 0;
+	border-bottom: dashed 1px #ddd;
+}
+.list li:last-child{
+	border:none;
+}
+.list p{
+	max-height:3em;
+	overflow:hidden;
+}
+.list p:last-child{
+	text-align: right;
+}

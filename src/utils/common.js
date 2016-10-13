@@ -12,24 +12,35 @@ class Common {
 		this.setFontSize();
 	}
 	setFontSize() { // 设置字体大小
-		var max = 414;
-		var htmlEle = document.querySelector("html");
-		var windowWidth = document.documentElement.clientWidth > max ? max : document.documentElement.clientWidth;
-		htmlEle.style.fontSize = 10 * windowWidth / max + 'px';
+		function resetSize(){
+			var max = 414;
+			var htmlEle = document.querySelector("html");
+			var windowWidth = document.documentElement.clientWidth > max ? max : document.documentElement.clientWidth;
+			htmlEle.style.fontSize = parseInt(10 * windowWidth / max) + 'px';
+		}
+		resetSize();
+		window.onresize=resetSize;
 	}
 	toFetch(requestJson){	// fetch方式请求，替代ajax请求方式
 		var getApiInfo = this.getApiInfo();
-		fetch(getApiInfo.apiPath + requestJson.url).then(function(response) {
+		return fetch(getApiInfo.apiPath + requestJson.url)
+		.then( response => {
 	        if (response.status >= 400) {
-				requestJson.callback({
-					code: 2,
-					msg: '获取数据出错，状态码为：' + response.status
-				})
+	        	return new Promise(function(resolve, reject){
+					resolve({
+						code: 2,
+						msg: '获取数据出错，状态码为：' + response.status
+					})
+	        	});
 	        }else{
-				response.json().then(function(result) {	// 请求成功	0数据无误，1数据有误
-					requestJson.callback(result);
-				});
+				return response.json()
 	        }
+	    })
+		.then(function(result) {
+			return new Promise( (resolve, reject) => {
+				requestJson.callback(result);
+				resolve(result);
+			});
 	    })
 	    .catch(function(err) {
 			requestJson.callback({

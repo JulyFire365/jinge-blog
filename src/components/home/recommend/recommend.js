@@ -1,11 +1,20 @@
-import {React, ReactDOM, Router, Route, hashHistory, IndexRoute, Link, comm, Enhance} from 'commComp';
+import React from 'react';
+import List from 'compPublicDir/list';
+import Item from './item';
+import styles from './recommend.css';
 class HomeRecommend extends React.Component {
     render() {
-    	// console.log('HomeRecommend');
         return (
-        	<div>
-				HomeRecommend
-        	</div>
+        	<div className={styles.recommend}>
+        		<div className={styles.title}>
+        			<h1>精选推荐</h1>
+        		</div>
+        		<div className={styles.item}>
+    	        	<List response={this.props.response} ulClass={styles.list}>
+    	        		<Item />
+    				</List>
+                </div>
+			</div>
         );
     }
 }

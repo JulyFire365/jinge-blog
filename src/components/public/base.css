@@ -1,0 +1,9 @@
+/*公共组件公用代码*/
+.bgReset{
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size:100% auto; 
+}
+.content{
+	padding:3.6rem 1.4rem;
+}

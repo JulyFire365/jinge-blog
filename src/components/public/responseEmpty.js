@@ -1,4 +1,4 @@
-import {React, ReactDOM, Router, Route, hashHistory, IndexRoute, Link, comm, Enhance} from 'commComp';
+import React from 'react';
 // 列表为空时的展示组件
 class ResponseEmpty extends React.Component {
     render() {

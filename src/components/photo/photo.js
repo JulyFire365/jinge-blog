@@ -1,4 +1,5 @@
-import {React, ReactDOM, Router, Route, hashHistory, IndexRoute, Link, comm, Enhance} from 'commComp';
+import React from 'react';
+import comm from 'commFile';
 class Photo extends React.Component {
 	handleClick(){
 		comm.goUrl('/');

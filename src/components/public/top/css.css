@@ -1,0 +1,15 @@
+.top{
+	position: relative;
+	width:18rem;
+	margin-left:3.6rem;
+}
+.photo{
+	position:absolute;
+	width:100%;
+	height:2.3rem;
+	left:0;
+	top:-2.3rem;
+	composes: bgReset from 'compPublicDir/base.css';
+	background-image:url('./cloudUp.png');
+	background-position: center bottom;
+}

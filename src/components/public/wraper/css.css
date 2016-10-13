@@ -1,0 +1,14 @@
+.wraper{
+	background-color:#fff;
+	margin:2.6rem 1rem;
+	border-radius: .6rem;
+	position:relative;
+}
+
+
+@media only screen and (min-width: 900px){
+	.wraper{
+		width:800px;
+		margin:30px auto;
+	}
+}

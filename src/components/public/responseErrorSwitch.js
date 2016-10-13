@@ -1,4 +1,4 @@
-import {React, ReactDOM, Router, Route, hashHistory, IndexRoute, Link, comm, Enhance} from 'commComp';
+import React from 'react';
 import ResponseEmpty from './responseEmpty';
 import ResponseError from './responseError';
 import ResponseWaite from './responseWaite';

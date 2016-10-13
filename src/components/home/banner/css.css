@@ -1,0 +1,10 @@
+.bannerWraper,.bannerWraper ul,.bannerWraper li,.bannerWraper img{
+	width:100%;
+	height:100%;
+}
+.bannerWraper li{
+	display: none;
+}
+.bannerWraper li:first-child{
+	display: block;
+}

@@ -1,4 +1,4 @@
-import {React, ReactDOM, Router, Route, hashHistory, IndexRoute, Link, comm, Enhance} from 'commComp';
+import React from 'react';
 // 请求等待时的展示组件
 class ResponseWaite extends React.Component {
     render() {

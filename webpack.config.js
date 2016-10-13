@@ -10,7 +10,7 @@ module.exports = {
 	entry: {
 		bundle: src + '/index.js', // 入口文件
 		// 打包公共文件配置
-		vendor: ['react', 'react-dom', 'react-router', src + '/utils/common', src + '/components/public/enhance']
+		vendor: ['react', 'react-dom', 'react-router']
 	}, // 入口文件
 	output: {
 		path: dist, //	输出路径
@@ -30,8 +30,11 @@ module.exports = {
 			// 公共工具目录
 			utilsDir: src + '/utils',
 
-			// commonComponents.js别名
-			commComp: src + '/components/public/commonComponents.js'
+			// libsComponents.js别名
+			libsComp: src + '/components/public/libsComponents.js',
+
+			// common.js别名
+			commFile: src + '/utils/common.js'
 		}
 	},
 	module: {
@@ -42,21 +45,20 @@ module.exports = {
 			query: {
 				presets: ['es2015', 'react']
 			}
-		}, {
-			test: /\.(css|sass)$/,
-			loader: ExtractTextPlugin.extract("style-loader", "css-loader", "sass-loader")
-		}, {
-			test: /\.(png|jpe?g|gif)$/,
-			loader: 'url',
-			query: {
-				limit: 1024
-			}
+		}, 
+		{
+			test: /\.css$/,
+			loader: ExtractTextPlugin.extract("style?sourceMap", "css?modules&localIdentName=[name]__[local]-[hash:base64:5]","postcss")
+		}, 
+		{
+			test: /\.(png|jpg)$/, 
+      		loader: 'url?limit=2000'
 		}],
 		// 可忽略文件夹，加快发布速度
 		// noParse: ['./utils','./public','./images']
 	},
 	// 自动添加css3前缀
-	postcss: [autoprefixer],
+	postcss: [autoprefixer({ browsers: ['last 2 versions'] })],
 	plugins: [
 		// 提取公共js文件
 		new webpack.optimize.CommonsChunkPlugin('vendor', 'js/vendor.js'),
@@ -81,7 +83,7 @@ module.exports = {
 
 		//	根据模板插入css/js等生成最终HTML
 		new HtmlWebpackPlugin({
-			favicon: src + '/images/favicon.ico', //favicon路径
+			favicon: src + '/favicon.ico', //favicon路径
 			filename: 'index.html', //生成的html存放路径，相对于 path
 			template: src + '/index.html', //html模板路径
 			inject: 'body', //允许插件修改哪些内容，包括head与body，或者true

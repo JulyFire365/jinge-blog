@@ -1,11 +1,17 @@
 ﻿
 body{
-	color:#323232;
+	color: #595959;
 	font-family:'Microsoft YaHei',Arial;
-	font-size:14px;
+	font-size:1.2rem;
+	line-height: 1.5em;
+	background-color:#153039;
 }
 a{
-	color:#323232;
+	color:#595959;
+	text-decoration:none;
+}
+a:hover{
+  color: #F07402;
 }
 img {
 	max-width: 100%;
@@ -14,7 +20,7 @@ input{
 	color:#323232;
 }
 h1,h2,h3{
-	font-size:18px;
+	font-size:1.6rem;
 }
 
 

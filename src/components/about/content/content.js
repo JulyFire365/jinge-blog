@@ -1,5 +1,6 @@
-import {React, ReactDOM, Router, Route, hashHistory, IndexRoute, Link, comm, Enhance} from 'commComp';
-import Nav from 'compDir/home/nav/nav';
+import React from 'react';
+import comm from 'commFile';
+import Nav from 'compPublicDir/nav/js';
 import ResponseErrorSwitch from 'compPublicDir/responseErrorSwitch';
 class Content extends React.Component {
     render() {
@@ -19,4 +20,4 @@ class Content extends React.Component {
     }
 }
 
-export default Enhance(Content);
+export default Content;

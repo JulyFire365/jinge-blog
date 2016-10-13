@@ -1,11 +1,12 @@
-import {React, ReactDOM, Router, Route, hashHistory, IndexRoute, Link, comm, Enhance} from 'commComp';
+import React from 'react';
+import comm from 'commFile';
 import Content from './content/content';
 class About extends React.Component {
 	constructor(){
 		super();
 		this.state = {
 			config  :{
-				url : '../data/homeNav.json'
+				url : 'homeNav.json'
 			}
 		};
 	}
