@@ -16,7 +16,7 @@ class Common {
 			var max = 414;
 			var htmlEle = document.querySelector("html");
 			var windowWidth = document.documentElement.clientWidth > max ? max : document.documentElement.clientWidth;
-			htmlEle.style.fontSize = parseInt(10 * windowWidth / max) + 'px';
+			htmlEle.style.fontSize = Math.ceil(10 * windowWidth / max) + 'px';
 		}
 		resetSize();
 		window.onresize=resetSize;

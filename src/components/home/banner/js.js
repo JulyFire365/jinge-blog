@@ -1,5 +1,5 @@
 import React from 'react';
-import List from 'compPublicDir/list';
+import List from 'compPublicDir/list/list';
 import Item from './item';
 import styles from './css.css';
 class Banner extends React.Component {

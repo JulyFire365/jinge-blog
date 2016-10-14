@@ -1,6 +1,6 @@
 import React from 'react';
 import comm from 'commFile';
-import List from 'compPublicDir/list';
+import List from 'compPublicDir/list/list';
 import Item from './item';
 import publicNavStyles from 'compPublicDir/nav/css.css';
 import styles from './css.css';

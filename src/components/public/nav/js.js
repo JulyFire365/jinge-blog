@@ -1,6 +1,6 @@
 import React from 'react';
 import comm from 'commFile';
-import List from 'compPublicDir/list';
+import List from 'compPublicDir/list/list';
 import Item from './item';
 import styles from './css.css';
 class Nav extends React.Component {
@@ -17,6 +17,15 @@ class Nav extends React.Component {
 		this.setState({
 			isShowNav : !this.state.isShowNav
 		});
+		this.autoHide();
+	}
+	autoHide(){
+		clearTimeout(this.timeout);
+		this.timeout = setTimeout(()=>{
+			if( this.state.isShowNav ){
+				this.clickHandle();
+			}
+		}, 3000);
 	}
 	componentDidMount(){
 		comm.toFetch({

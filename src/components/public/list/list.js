@@ -1,6 +1,6 @@
 import React from 'react';
 import comm from 'commFile';
-import ResponseErrorSwitch from 'compPublicDir/responseErrorSwitch';
+import ResponseErrorSwitch from 'compPublicDir/responseErrors/responseErrorSwitch';
 // 列表为空时的展示组件
 class List extends React.Component {
     render() {

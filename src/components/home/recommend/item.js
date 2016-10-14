@@ -1,4 +1,4 @@
-import List from 'compPublicDir/list';
+import List from 'compPublicDir/list/list';
 import {React, ReactDOM, Router, Route, hashHistory, IndexRoute, Link} from 'libsComp';
 class Item extends React.Component {
     render() {

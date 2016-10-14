@@ -1,4 +1,4 @@
 // 入口文件
 import './public/reset.css';
 import './public/public.css';
-import 'compPublicDir/routes';
+import 'compPublicDir/router/routes';

@@ -1,5 +1,7 @@
 import React from 'react';
 import comm from 'commFile';
+import Content from 'compPublicDir/content/js';
+import Header from './header/js';
 class Photo extends React.Component {
 	handleClick(){
 		comm.goUrl('/');
@@ -7,9 +9,10 @@ class Photo extends React.Component {
     render() {
     	console.log('Photo');
         return (
-        	<div>
+            <Content>
+                <Header />
 				<div onClick={this.handleClick.bind(this)}>Photo</div>
-        	</div>
+        	</Content>
         );
     }
 }

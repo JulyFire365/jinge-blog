@@ -1,0 +1,6 @@
+.title{
+	background:url('compPublicDir/nav/write.png') left bottom no-repeat;
+	background-size:auto 100%;
+	padding:1rem 0 .2rem 3rem;
+	border-bottom:solid solid .4rem #f2f2f2;
+}

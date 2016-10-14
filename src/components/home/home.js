@@ -4,7 +4,7 @@ import Banner from './banner/js';
 import Recommend from './recommend/recommend';
 import Header from './header/js';
 import Nav from './nav/js';
-import styles from 'compPublicDir/base.css';
+import Content from 'compPublicDir/content/js';
 class Home extends React.Component {
 	constructor(){
 		super();
@@ -44,10 +44,10 @@ class Home extends React.Component {
         return (
         	<div>
         		<Header response={this.state.banner.response}/>
-        		<div className={styles.content}>
+        		<Content>
         			<Nav response={this.state.nav.response}/>
         			<Recommend response={this.state.recommend.response}/>
-        		</div>
+        		</Content>
         	</div>
         );
     }
