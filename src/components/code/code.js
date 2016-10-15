@@ -11,10 +11,12 @@ class Code extends React.Component {
         };
     }
     changeFn(num=0){
-
         this.setState({
             showNum : num
         });
+    }
+    closeAll(){
+        this.changeFn(0);
     }
     render() {
         var closeAllClass = this.state.showNum == 0 ? styles.hideCloseAll : styles.showCloseAll;
@@ -22,7 +24,7 @@ class Code extends React.Component {
         	<Content>
         		<Header title="前端技术交流"/>
                 <Article1 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
-                <div className={closeAllClass} onClick={this.changeFn.bind(this)}>⇪</div>
+                <div className={closeAllClass} onClick={this.closeAll.bind(this)}>⇪</div>
         	</Content>
         );
     }

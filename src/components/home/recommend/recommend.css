@@ -7,12 +7,20 @@
 	padding:1rem 0 .2rem 3rem;
 	border-bottom:solid solid .4rem #f2f2f2;
 }
-.item{
-	
-}
 .list h1{
 	line-height: 2em;
 	font-size:1.6rem;
+	position: relative;
+}
+.list h1:after{
+	content:"⇪";
+	position: absolute;
+	right:1rem;
+	top:0;
+	transform: rotate(90deg);
+}
+.list a{
+	display: block;
 }
 .list li{
 	padding: 1rem 0;

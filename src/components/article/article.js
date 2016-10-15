@@ -16,23 +16,25 @@ class Article extends React.Component {
 		};
 	}
 	changeFn(num=0){
-
 		this.setState({
 			showNum : num
 		});
 	}
+    closeAll(){
+        this.changeFn(0);
+    }
     render() {
     	var closeAllClass = this.state.showNum == 0 ? styles.hideCloseAll : styles.showCloseAll;
         return (
         	<Content>
         		<Header title="随笔写写写"/>
-        		<Article4 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
         		<Article5 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
         		<Article1 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
         		<Article2 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
         		<Article3 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
+                <Article4 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
         		<Article6 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
-        		<div className={closeAllClass} onClick={this.changeFn.bind(this)}>⇪</div>
+        		<div className={closeAllClass} onClick={this.closeAll.bind(this)}>⇪</div>
         	</Content>
         );
     }

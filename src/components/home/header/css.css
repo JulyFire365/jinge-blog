@@ -11,6 +11,13 @@
 	right:5rem;
 	bottom:7rem;
 }
+.poemWraper li{
+	opacity: 0;
+	transition: all 2s ease;
+}
+.poemWraper .poem li{
+	opacity: 1;
+}
 .poem li{
 	float:right;
 	width:1.2em;

@@ -38,13 +38,15 @@ class Nav extends React.Component {
 		});
 	}
     render() {
-    	let showFlg = this.state.isShowNav ? styles.showWraper : styles.hideNavWraper;
+    	let showFlg = this.state.isShowNav ? styles.showWraper : '';
         return (
         	<nav className={showFlg}>
-        		<div className={styles.menu} onClick={this.clickHandle.bind(this)}></div>
-	            <List response={this.state.response} ulClass={styles.list}>
-                    <Item showItem={this.state.showItem} />
-                </List>
+        		<div className={styles.wraper}>
+	        		<div className={styles.menu} onClick={this.clickHandle.bind(this)}></div>
+		            <List response={this.state.response} ulClass={styles.list}>
+	                    <Item showItem={this.state.showItem} />
+	                </List>
+                </div>
         	</nav>
         );
     }

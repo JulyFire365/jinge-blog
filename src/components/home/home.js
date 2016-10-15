@@ -1,6 +1,5 @@
 import React from 'react';
 import comm from 'commFile';
-import Banner from './banner/js';
 import Recommend from './recommend/recommend';
 import Header from './header/js';
 import Nav from './nav/js';
@@ -12,11 +11,6 @@ class Home extends React.Component {
 			nav : {
 				config  :{
 					url : 'nav.json'
-				}
-			},
-			banner : {
-				config  :{
-					url : 'banner.json'
 				}
 			},
 			recommend : {
@@ -43,7 +37,7 @@ class Home extends React.Component {
     render() {
         return (
         	<div>
-        		<Header response={this.state.banner.response}/>
+        		<Header />
         		<Content>
         			<Nav response={this.state.nav.response}/>
         			<Recommend response={this.state.recommend.response}/>

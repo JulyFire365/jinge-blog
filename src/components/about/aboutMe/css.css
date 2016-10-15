@@ -1,0 +1,15 @@
+.wraper a{
+	color:red;
+}
+.wraper h2{
+	margin-top:1rem;
+	line-height:2em;
+}
+.other{
+	text-align:right;
+	margin:1rem 0;
+}
+.hadImgP img{
+	max-width:60%;
+	vertical-align: top;
+}

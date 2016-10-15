@@ -1,17 +1,38 @@
 import React from 'react';
-import comm from 'commFile';
 import Content from 'compPublicDir/content/js';
 import Header from './header/js';
+import styles from 'compDir/article/css.css';
+import Article1 from './article1/js';
+import Article2 from './article2/js';
+import Article3 from './article3/js';
+import Article4 from './article4/js';
+import Article5 from './article5/js';
 class Photo extends React.Component {
-	handleClick(){
-		comm.goUrl('/');
-	}
+    constructor(){
+        super();
+        this.state = {
+            showNum :1
+        };
+    }
+    changeFn(num=0){
+        this.setState({
+            showNum : num
+        });
+    }
+    closeAll(){
+        this.changeFn(0);
+    }
     render() {
-    	console.log('Photo');
+    	var closeAllClass = this.state.showNum == 0 ? styles.hideCloseAll : styles.showCloseAll;
         return (
             <Content>
-                <Header />
-				<div onClick={this.handleClick.bind(this)}>Photo</div>
+                <Header title="趣味图片" />
+                <Article1 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
+                <Article2 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
+                <Article3 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
+                <Article4 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
+                <Article5 showNum={this.state.showNum} changeFn={this.changeFn.bind(this)} />
+                <div className={closeAllClass} onClick={this.closeAll.bind(this)}>⇪</div>
         	</Content>
         );
     }

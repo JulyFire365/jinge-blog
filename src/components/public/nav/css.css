@@ -1,4 +1,5 @@
-.showWraper,.hideNavWraper{
+
+.wraper{
 	position:fixed;
 	width:2.3rem;
 	height:2.3rem;
@@ -7,19 +8,6 @@
 	bottom:1.5rem;
 	z-index:998;
 	text-indent: -300rem;
-}
-.showWraper .list{
-	display:block;
-}
-.hideNavWraper .list{
-	display:none;
-}
-.dotBase{
-	width:100%;
-	height:100%;
-	position: absolute;
-	left:0;
-	top:0;	
 }
 .menu{
 	width:100%;
@@ -42,28 +30,33 @@
 	top:0;	
 	z-index:988;
 }
+
 .list li{
 	position: absolute;
 	width:2px;
 	height:12rem;
 	left:50%;
 	top:50%;
-	margin-top:-6rem;
+	margin-top:1rem;
 	margin-left:-1px;
+	transition: all .3s ease;
 }
-.list li:nth-child(1){
-	transform:rotate(0deg)
+.showWraper .list li{
+	margin-top:-6rem;
 }
-.list li:nth-child(2){
+.showWraper .list li a{
+	opacity: 1;
+}
+.showWraper .list li:nth-child(2){
 	transform:rotate(25deg)
 }
-.list li:nth-child(3){
+.showWraper .list li:nth-child(3){
 	transform:rotate(50deg)
 }
-.list li:nth-child(4){
+.showWraper .list li:nth-child(4){
 	transform:rotate(75deg)
 }
-.list li:nth-child(5){
+.showWraper .list li:nth-child(5){
 	transform:rotate(100deg)
 }
 .list a{
@@ -82,6 +75,7 @@
 	background-color: #fff;
 	background-size:90% auto;
 	box-shadow: 0 0 2px #111;
+	opacity: 0;
 }
 .list li:nth-child(1) a{
 	transform:rotate(0deg);
@@ -106,7 +100,7 @@
 	background-image: url('./cat.png');
 }
 :global(a.current) {
-  opacity:0.3;
+  opacity: 0.3;
 }
 
 
