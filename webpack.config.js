@@ -94,13 +94,20 @@ module.exports = {
 			}
 		}),
 
+		// 消除webpack压缩警告
+		new webpack.DefinePlugin({
+		  "process.env": { 
+		     NODE_ENV: JSON.stringify("production") 
+		   }
+		})
+
 		// 把指定文件夹下的文件复制到指定的目录，有问题，无效
 		// new TransferWebpackPlugin([{
 		// 	from: src + '/api/'
 		// }], './dist/api')
 		
 	],
-	devtool: 'eval-source-map', //	Dev only,配置生成Source Maps，隐射源文件位置
+	// devtool: 'eval-source-map', //	Dev only,配置生成Source Maps，隐射源文件位置
 	// Dev only,本地服务器配置
 	devServer: {
 		contentBase: '', //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
