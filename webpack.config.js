@@ -2,10 +2,14 @@ let webpack = require('webpack');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let autoprefixer = require('autoprefixer');
-let TransferWebpackPlugin = require('transfer-webpack-plugin');
-let path = require('path');
-let src = path.resolve(__dirname, 'src');
-let dist = path.resolve(__dirname, 'dist');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
+// 源文件目录
+let src = __dirname + '/src';
+// 发布目录
+let dist = __dirname + '/dist';
+
+
 module.exports = {
 	entry: {
 		bundle: src + '/index.js', // 入口文件
@@ -48,17 +52,16 @@ module.exports = {
 		}, 
 		{
 			test: /\.css$/,
-			loader: ExtractTextPlugin.extract("style?sourceMap", "css?modules&localIdentName=[name]__[local]-[hash:base64:5]","postcss")
+			loader: ExtractTextPlugin.extract("style","css?modules&localIdentName=[name]__[local]-[hash:base64:5]!postcss")
 		}, 
 		{
 			test: /\.(png|jpg)$/, 
-      		loader: 'url?limit=2000'
+      		loader: 'url?limit=8000&name=images/[name].[ext]'
 		}],
 		// 可忽略文件夹，加快发布速度
 		// noParse: ['./utils','./public','./images']
 	},
-	// 自动添加css3前缀
-	postcss: [autoprefixer({ browsers: ['last 2 versions'] })],
+	postcss:[autoprefixer({browsers:['last 2 versions']})],
 	plugins: [
 		// 提取公共js文件
 		new webpack.optimize.CommonsChunkPlugin('vendor', 'js/vendor.js'),
@@ -68,8 +71,6 @@ module.exports = {
 			allChunks: true
 		}),
 
-		// 热替换
-		new webpack.HotModuleReplacementPlugin(), // Dev only
 
 		// 压缩打包的文件
 		new webpack.optimize.UglifyJsPlugin({
@@ -81,10 +82,10 @@ module.exports = {
 		// 允许错误不打断程序
 		new webpack.NoErrorsPlugin(),
 
-		//	根据模板插入css/js等生成最终HTML
+		//	自动成成html文件
 		new HtmlWebpackPlugin({
 			favicon: src + '/favicon.ico', //favicon路径
-			filename: 'index.html', //生成的html存放路径，相对于 path
+			filename: 'index.html', //生成的html存放路径，相对于path
 			template: src + '/index.html', //html模板路径
 			inject: 'body', //允许插件修改哪些内容，包括head与body，或者true
 			hash: true, //为静态资源生成hash值
@@ -99,18 +100,24 @@ module.exports = {
 		  "process.env": { 
 		     NODE_ENV: JSON.stringify("production") 
 		   }
-		})
+		}),
 
-		// 把指定文件夹下的文件复制到指定的目录，有问题，无效
-		// new TransferWebpackPlugin([{
-		// 	from: src + '/api/'
-		// }], './dist/api')
+	   //把src/api目录中的文件复制到dist/api目录中
+	    new CopyWebpackPlugin([{
+	    	toType : 'dir',
+    		from: src + '/api',
+    		to : dist + '/api'
+		}]),
+
+		// 热替换
+		new webpack.HotModuleReplacementPlugin() // Dev only
 		
 	],
-	// devtool: 'eval-source-map', //	Dev only,配置生成Source Maps，隐射源文件位置
+	devtool: 'eval-source-map', //	Dev only,配置生成Source Maps，隐射源文件位置
+	
 	// Dev only,本地服务器配置
 	devServer: {
-		contentBase: '', //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
+		contentBase: dist, //静态资源的目录 相对路径,相对于当前路径 默认为当前config所在的目录
 		devtool: 'eval',
 		hot: true, //自动刷新
 		inline: true,

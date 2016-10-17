@@ -51,8 +51,7 @@ class Common {
 	}
 	getApiInfo(){	// api相关配置
 		return {
-			// apiPath : '/api/'	// 生产环境配置
-			apiPath : '/dist/api/'	// 开发环境配置
+			apiPath : '/api/'
 		}
 	}
 	isCorrectRender(response){	// 判断fetch返回结果是否正确
