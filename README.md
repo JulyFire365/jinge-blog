@@ -4,5 +4,3 @@
 ├── /src/ 	源文件  
 ├── /package.json 	依赖package说明文件  
 ├── /webpack.config.js 	webpack配置文件  
-
-test
